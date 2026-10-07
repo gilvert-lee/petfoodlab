@@ -1,0 +1,12 @@
+services:
+  petfoodlab:
+    build: .
+    container_name: petfoodlab
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      DATABASE_PATH: /app/data/petfoodlab.db
+    volumes:
+      - ./data:/app/data

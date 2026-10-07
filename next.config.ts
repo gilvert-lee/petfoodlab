@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  output: "standalone",
+  serverExternalPackages: ["better-sqlite3"],
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
+  },
   turbopack: {
     rules: {
       "*.css": {
